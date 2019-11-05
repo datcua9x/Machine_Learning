@@ -6,7 +6,6 @@ floors = [3, 4, 2, 4, 3, 1]  # x2
 rooms = [6, 8, 3, 9, 5, 2]  # x3
 price = [2.5, 3.4, 1.8, 4.5, 3.2, 1.6]  # y
 
-
 # set the value of matrix X(m,n+1) as A and the out put matrix as B
 A = np.array([base, size, floors, rooms])
 B = np.array([price])
@@ -19,9 +18,11 @@ Z = np.linalg.inv(X.transpose().dot(X))
 G = X.transpose().dot(Y)
 # calculate the theta
 theta = Z.dot(G)
-print(theta)
+
+print("the list of theta from top down theta0 to theta3: \n", theta)
 
 
+# function to calculate the cost value
 def cost_function(ans, x1, x2, x3, y):
     sigma = 0
     for i in range(len(x1)):
