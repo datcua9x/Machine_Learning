@@ -12,10 +12,12 @@ def random_value(base):
     random_numbers = random.sample(range(1, len(base)), 3)  # 3 is number of value that you wanted to use
     return random_numbers
 
-#store the random values in the a list
+
+# store the random values in the a list
 list = random_value(base)
 
-# calculate theta 0
+
+# calculate theta 0 (set the learning rate)
 def cal_theta0(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=0.001):
     sigma = 0
     # choose random values to calculate the theta(stored in list)
@@ -25,7 +27,8 @@ def cal_theta0(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=
         new_theta0 = theta0 - learning_rate * sigma
     return new_theta0
 
-# calculate theta 1
+
+# calculate theta 1 ( set the learning rate)
 def cal_theta1(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=0.001):
     sigma = 0
     # choose random values to calculate the theta(stored in list)
@@ -35,7 +38,8 @@ def cal_theta1(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=
         new_theta1 = theta1 - learning_rate * sigma
     return new_theta1
 
-# calculate theta 2
+
+# calculate theta 2 (set the learning rate)
 def cal_theta2(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=0.001):
     sigma = 0
     # choose random values to calculate the theta(stored in list)
@@ -45,7 +49,8 @@ def cal_theta2(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=
         new_theta2 = theta2 - learning_rate * sigma
     return new_theta2
 
-# calculate theta 3
+
+# calculate theta 3 (set the learning rate)
 def cal_theta3(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=0.001):
     sigma = 0
     # choose random values to calculate the theta(stored in list)
@@ -55,7 +60,8 @@ def cal_theta3(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=
         new_theta3 = theta3 - learning_rate * sigma
     return new_theta3
 
-#calculate cost function
+
+# calculate cost function
 def cost_function(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y):
     sigma = 0
     # choose a random value to calculate the theta(stored in list)
@@ -63,6 +69,7 @@ def cost_function(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y):
     for i in list:
         sigma += (theta0 + theta1 * x1[i] + theta2 * x2[i] + theta3 * x3[i] - y[i]) ** 2
     return sigma / (2 * len(list))
+
 
 # set the first value for theta
 theta1 = 0
@@ -83,10 +90,8 @@ best_theta3 = theta3
 # enter n for the number of iterations that you wanted
 n = input("enter number of iterations =")
 for i in range(int(n)):
-
-    list = random_value(base)
-    print("the list is", list)
-    temp = random_value(base)
+    # calculate the theta after n iteration(input n from the keyboard)
+    list = random_value(base)  # generate a list of random value and stored in list
     theta0 = cal_theta0(theta0, theta1, theta2, theta3, base, size, floors, rooms, price)
     theta1 = cal_theta1(temp0, theta1, theta2, theta3, base, size, floors, rooms, price)
     theta2 = cal_theta2(temp0, temp1, theta2, theta3, base, size, floors, rooms, price)
@@ -95,6 +100,7 @@ for i in range(int(n)):
     temp1 = theta1
     temp2 = theta2
     temp3 = theta3
+    # find the min value of cost function and save the value of theta at the  in to best_theta
     if abs(cost_function(theta0, theta1, theta2, theta3, base, size, floors, rooms, price)) < abs(min):
         min = cost_function(theta0, theta1, theta2, theta3, base, size, floors, rooms, price)
         best_theta0 = theta0

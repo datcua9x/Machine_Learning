@@ -84,8 +84,8 @@ best_theta3 = theta3
 # enter n for the number of iterations that you wanted
 n = input("enter number of iterations =")
 for i in range(int(n)):
-    # calculate the theta after n iteration(input from the keyboard)
-    temp = random_value(base)
+    # calculate the theta after n iteration(input n from the keyboard)
+    temp = random_value(base)  # generate a random value of random value and stored in base value
     theta0 = cal_theta0(theta0, theta1, theta2, theta3, base, size, floors, rooms, price)
     theta1 = cal_theta1(temp0, theta1, theta2, theta3, base, size, floors, rooms, price)
     theta2 = cal_theta2(temp0, temp1, theta2, theta3, base, size, floors, rooms, price)
