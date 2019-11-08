@@ -59,10 +59,11 @@ def cal_theta3(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y, learning_rate=
 
 def cost_function(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y):
     sigma = 0
+    for i in range(len(x0)):
     # choose a random value to calculate cost function
     # temp stand for the address of value
-    sigma += (theta0 + theta1 * x1[temp] + theta2 * x2[temp] + theta3 * x3[temp] - y[temp]) ** 2
-    return sigma / 2
+        sigma += (theta0 + theta1 * x1[i] + theta2 * x2[i] + theta3 * x3[i] - y[i]) ** 2
+    return sigma / (2*len(x1))
 
 
 # set the first value for theta

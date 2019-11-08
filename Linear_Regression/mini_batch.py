@@ -66,9 +66,9 @@ def cost_function(theta0, theta1, theta2, theta3, x0, x1, x2, x3, y):
     sigma = 0
     # choose a random value to calculate the theta(stored in list)
     # i stand for the address of value
-    for i in list:
+    for i in range(len(x1)):
         sigma += (theta0 + theta1 * x1[i] + theta2 * x2[i] + theta3 * x3[i] - y[i]) ** 2
-    return sigma / (2 * len(list))
+    return sigma / (2 * len(x1))
 
 
 # set the first value for theta
